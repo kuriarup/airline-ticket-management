@@ -6,3 +6,8 @@ const {
   getCity,
   sorting,
 } = require("../utils/helperFunctions");
+// render search for flights page
+module.exports.index = (req, res) => {
+  const airports = airportsList.airports;
+  res.render("flights/index", { airports });
+};
