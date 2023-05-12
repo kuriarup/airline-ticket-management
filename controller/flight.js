@@ -30,3 +30,8 @@ module.exports.renderSearch = (req, res) => {
     details = sorting(details, req.query.sortby);
     res.render("flights/search", { details });
   };
+  // store sessions according to the given paramters
+module.exports.storeFlightDetails = (req, res) => {
+  req.session.detail = JSON.parse(req.body.detail);
+  res.redirect("/review");
+};
