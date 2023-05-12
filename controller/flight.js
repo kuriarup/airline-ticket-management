@@ -35,3 +35,9 @@ module.exports.storeFlightDetails = (req, res) => {
   req.session.detail = JSON.parse(req.body.detail);
   res.redirect("/review");
 };
+// render ticket details review page
+module.exports.renderReview = (req, res) => {
+    if (!req.session.detail) return res.redirect("/search");
+    const detail = req.session.detail;
+    res.render("flights/review", { detail });
+  };
