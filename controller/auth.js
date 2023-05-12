@@ -34,4 +34,14 @@ module.exports.renderLogin = (req, res) => {
   
     res.redirect(redirectUrl);
   };
+  // logout user
+module.exports.logout = (req, res) => {
+    req.logout(function (err) {
+      req.flash("success", "Logged out successfully!");
   
+      if (err) {
+        return next(err);
+      }
+      res.redirect("/");
+    });
+  };
