@@ -11,3 +11,15 @@ module.exports.index = (req, res) => {
   const airports = airportsList.airports;
   res.render("flights/index", { airports });
 };
+// search flights according to the given params
+module.exports.findFlights = (req, res) => {
+  const { from, to, date, passengerCount, group } = req.body;
+  req.session.details = generateDetails(
+    from.toUpperCase(),
+    to.toUpperCase(),
+    date,
+    parseInt(passengerCount),
+    group
+  );
+  res.redirect("/search");
+};
