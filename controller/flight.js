@@ -79,3 +79,8 @@ module.exports.showBoardingPass = async (req, res) => {
   
     res.render("flights/boarding-pass", { bookingDetail, getCity });
   };
+  // render cancel ticket page
+module.exports.renderCancel = async (req, res) => {
+    const bookingDetail = await BookingDetail.findById(req.params.id);
+    res.render("flights/cancel", { bookingDetail, getCity });
+  };
