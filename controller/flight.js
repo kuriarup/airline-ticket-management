@@ -23,3 +23,10 @@ module.exports.findFlights = (req, res) => {
   );
   res.redirect("/search");
 };
+// display flights according to the given paramters
+module.exports.renderSearch = (req, res) => {
+    if (!req.session.details) return res.redirect("/");
+    let details = req.session.details;
+    details = sorting(details, req.query.sortby);
+    res.render("flights/search", { details });
+  };
