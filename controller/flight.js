@@ -73,3 +73,9 @@ module.exports.showBookings = async (req, res) => {
     const details = await BookingDetail.find({ user: req.user._id });
     res.render("flights/bookings", { details, getCity });
   };
+  // render display boarding-pass page
+module.exports.showBoardingPass = async (req, res) => {
+    const bookingDetail = await BookingDetail.findById(req.params.id);
+  
+    res.render("flights/boarding-pass", { bookingDetail, getCity });
+  };
