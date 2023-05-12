@@ -22,3 +22,16 @@ module.exports.register = async (req, res, next) => {
     res.redirect("/register");
   }
 };
+// render the login page
+module.exports.renderLogin = (req, res) => {
+    res.render("auth/login");
+  };
+  
+  // check login details - authentication
+  module.exports.login = (req, res) => {
+    const redirectUrl = req.session.returnTo || "/";
+    req.flash("success", "Logged in successfully!");
+  
+    res.redirect(redirectUrl);
+  };
+  
