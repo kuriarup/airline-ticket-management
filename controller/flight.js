@@ -47,3 +47,24 @@ module.exports.renderTravellerForm = (req, res) => {
     const detail = req.session.detail;
     res.render("flights/traveller", { detail });
   };
+  // book tickets and store data in the DB
+module.exports.bookTicket = async (req, res) => {
+    if (!req.session.detail) return res.redirect("/search");
+  
+    const { passengerCount, passengers } = req.session.detail;
+    for (let index = 0; index < passengerCount; index++) {
+      let userInput =
+        req.body.group[index] +
+        req.body.fname[index] +
+        " " +
+        req.body.lname[index];
+      passengers.push(_.startCase(_.camelCase(userInput)));
+    }
+  
+    const bookingDetail = new BookingDetail(req.session.detail);
+    bookingDetail.user = req.user._id;
+    bookingDetail.isPaid = true;
+    await bookingDetail.save();
+    req.flash("success", "Your flight tickets have been booked successfully!");
+    res.redirect("/bookings");
+  };
