@@ -41,3 +41,9 @@ module.exports.renderReview = (req, res) => {
     const detail = req.session.detail;
     res.render("flights/review", { detail });
   };
+  // render the travellers' details form and payment details page
+module.exports.renderTravellerForm = (req, res) => {
+    if (!req.session.detail) return res.redirect("/search");
+    const detail = req.session.detail;
+    res.render("flights/traveller", { detail });
+  };
