@@ -84,3 +84,19 @@ module.exports.renderCancel = async (req, res) => {
     const bookingDetail = await BookingDetail.findById(req.params.id);
     res.render("flights/cancel", { bookingDetail, getCity });
   };
+  // delete flight tickets from DB
+module.exports.deleteBookings = async (req, res) => {
+    const { id, value } = req.params,
+      bookingDetail = await BookingDetail.findById(id);
+  
+    let passengers = bookingDetail.passengers;
+    passengers.splice(value, 1);
+    if (passengers.length > 0) {
+      await BookingDetail.findByIdAndUpdate(id, { passengers });
+      req.flash("success", "Your ticket has been cancelled successfully!");
+      return res.redirect("/cancel/" + id);
+    }
+    await BookingDetail.findByIdAndDelete(id);
+    req.flash("success", "Your ticket has been cancelled successfully!");
+    res.redirect("/bookings");
+  };
