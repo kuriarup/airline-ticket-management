@@ -68,3 +68,8 @@ module.exports.bookTicket = async (req, res) => {
     req.flash("success", "Your flight tickets have been booked successfully!");
     res.redirect("/bookings");
   };
+  // render show all bookings page
+module.exports.showBookings = async (req, res) => {
+    const details = await BookingDetail.find({ user: req.user._id });
+    res.render("flights/bookings", { details, getCity });
+  };
