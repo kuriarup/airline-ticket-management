@@ -1,6 +1,7 @@
 const airportsList = require("../utils/airportsList");
 
 const airlines = [
+    "US Bangla",
     "Vistara",
     "GoAir",
     "IndiGo",
