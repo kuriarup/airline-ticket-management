@@ -1,4 +1,4 @@
-const airportsList = require("../utils/airportsList");
+const airportsList = require("./aitportsList");
 
 const airlines = [
     "US Bangla",

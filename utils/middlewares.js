@@ -1,5 +1,5 @@
 const BookingDetail = require("../models/bookingDetail");
-const airportsList = require("../utils/airportsList");
+const airportsList = require("./aitportsList");
 
 // check if the user is logged-in or not
 module.exports.isLoggedIn = (req, res, next) => {

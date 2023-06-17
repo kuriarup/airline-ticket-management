@@ -16,8 +16,8 @@
 				<label for="passengerCount" class="form-control heading-label">TRAVELLERS</label>
 			</div>
 			<div class="input-group input-group-lg">
-				<input list="airports" type="text" aria-label="from" class="form-control index-input" value="DEL" name="from" autocomplete="false" required>
-				<input list="airports" type="text" aria-label="to" class="form-control index-input" value="MAA" name="to" autocomplete="false" required>
+				<input list="airports" type="text" aria-label="from" class="form-control index-input" value="CGP" name="from" autocomplete="false" required>
+				<input list="airports" type="text" aria-label="to" class="form-control index-input" value="CCU" name="to" autocomplete="false" required>
 				<datalist id="airports">
 					<% for (let airport of airports) { %>
 						<option value=<%= airport.IATA_code %>><%= airport.city_name %></option>

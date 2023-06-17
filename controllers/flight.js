@@ -1,6 +1,6 @@
 const _ = require("lodash");
 const BookingDetail = require("../models/bookingDetail");
-const airportsList = require("../utils/airportsList");
+const airportsList = require("../utils/aitportsList");
 const {
   generateDetails,
   getCity,

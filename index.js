@@ -21,7 +21,7 @@ const authRoutes = require("./routes/auth");
 // NodeJS-MongoDB connection using mongoose
 mongoose.set("strictQuery", false);
 const dbUrl = process.env.MONGO_URI;
-mongoose.connect("mongodb://localhost:27017", {
+mongoose.connect("mongodb://localhost:27017/flightDb", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
